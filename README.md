@@ -1,42 +1,26 @@
-Titanic Survival Prediction: A Machine Learning Approach
-Project Overview
-This repository contains a comprehensive data science workflow aimed at predicting passenger survival on the Titanic. The project covers the entire machine learning pipeline, from Exploratory Data Analysis (EDA) and feature engineering to model building and ensemble evaluation. It serves as a practical demonstration of handling categorical and continuous data, extracting hidden features, and optimizing classification models.
-
-Tech Stack & Tools
-Language: Python
-
-Data Manipulation: Pandas, NumPy
-
-Data Visualization: Seaborn, Matplotlib
-
-Machine Learning: Scikit-learn, XGBoost
-
-Methodology
-The project is structured into several key phases:
-
-Exploratory Data Analysis (EDA): Analyzed the distribution of numeric variables (Age, SibSp, Parch, Fare) and visualized survival rates across categorical variables like Ticket, Sex, and Embarked locations using correlation matrices and pivot tables.
-
-Feature Engineering: Created new, highly predictive features from unstructured data. This included extracting passenger titles (Mr., Mrs., Master, etc.) from names, isolating cabin letters to understand deck placements, and creating a cabin_multiple feature to count the number of cabins per passenger.
-
-Data Preprocessing: Imputed missing values using median strategies for continuous data and dropped nulls where appropriate. Applied log normalization to skewed features like Fare. Transformed categorical variables into numerical formats using dummy variables (One-Hot Encoding) and scaled the features using standard scaling.
-
-Model Selection & Evaluation: Evaluated multiple classification algorithms using 5-fold cross-validation to establish performance baselines:
-
-Naive Bayes
-
-Logistic Regression
-
-Decision Tree
-
-K-Nearest Neighbors (KNN)
-
-Random Forest
-
-Support Vector Classifier (SVC)
-
-XGBoost
-
-Ensemble Modeling: Built a Soft Voting Classifier combining Logistic Regression, KNN, Random Forest, Naive Bayes, SVC, and XGBoost to average model confidence and generate highly robust final predictions.
-
+Titanic Survival Prediction project
+In questo progetto, l'obiettivo è addestrare un modello di machine learning per prevedere se un passeggero sopravvivrà o meno al tragico naufragio del Titanic, partendo da un'analisi esplorativa dei dati (EDA) fino all'estrazione di feature nascoste e all'ottimizzazione dei modelli di classificazione.
+Project Structure
+•	Titanic project.ipynb: notebook contenente l'intero workflow, suddiviso in:
+o	Analisi esplorativa del dataset (EDA): distribuzione delle variabili e tassi di sopravvivenza.
+o	Feature Engineering e Preprocessing: estrazione dei titoli dai nomi (Mr., Mrs., Master), gestione dei valori mancanti, log normalization, ed encoding delle variabili categoriche.
+o	Applicazione dei modelli predittivi: addestramento e validazione (5-fold cross-validation) di modelli base (Naive Bayes, Logistic Regression, Decision Tree, KNN, Random Forest, SVC, XGBoost) e creazione di un Soft Voting Ensemble Classifier finale.
+•	requirements.txt: librerie python che devono essere installate (Pandas, NumPy, Seaborn, Matplotlib, Scikit-learn, XGBoost)
+Dataset
+Input variables:
+•	passenger data:
+o	Age (numeric): età del passeggero in anni
+o	Sex (categorical: "male", "female"): sesso del passeggero
+o	SibSp (numeric): numero di fratelli, sorelle o coniugi a bordo
+o	Parch (numeric): numero di genitori o figli a bordo
+o	Fare (numeric): tariffa pagata per il biglietto
+o	Ticket (categorical/text): numero del biglietto
+o	Cabin (categorical/text): numero della cabina (utilizzato per comprendere il posizionamento sui ponti e il numero di cabine per passeggero)
+o	Embarked (categorical: "C", "Q", "S"): porto di imbarco
+o	Name (text): nome del passeggero (utilizzato per estrarre i titoli sociali)
+Output variable (desired target):
+•	Survived - il passeggero è sopravvissuto? (binary: 1 = "yes", 0 = "no")
 Results
-The models were evaluated based on their cross-validation accuracy scores. The Support Vector Classifier (SVC) achieved the highest individual average accuracy at ~82.9%, while the final Soft Voting Ensemble Classifier yielded a highly stable and competitive accuracy of ~82.5%.
+I modelli sono stati valutati in base ai punteggi di accuratezza della cross-validation:
+•	Il Support Vector Classifier (SVC) ha ottenuto l'accuratezza media individuale più alta (~82.9%).
+•	Il Soft Voting Ensemble Classifier finale ha restituito un'accuratezza altamente stabile e competitiva del ~82.5%.

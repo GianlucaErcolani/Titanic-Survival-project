@@ -1,33 +1,33 @@
 # Titanic Survival Prediction project
 
-In questo progetto, l'obiettivo è addestrare un modello di machine learning per prevedere se un passeggero sopravvivrà o meno al tragico naufragio del Titanic, partendo da un'analisi esplorativa dei dati (EDA) fino all'estrazione di feature nascoste e all'ottimizzazione dei modelli di classificazione.
+In this project, the goal is to train a machine learning model to predict whether a passenger would survive the tragic sinking of the Titanic. The workflow ranges from Exploratory Data Analysis (EDA) to hidden feature extraction and the optimization of classification models.
 
 ### Project Structure
 
-* `Titanic project.ipynb`: notebook contenente l'intero workflow, suddiviso in:
-    * **Analisi esplorativa del dataset (EDA)**: distribuzione delle variabili e tassi di sopravvivenza.
-    * **Feature Engineering e Preprocessing**: estrazione dei titoli dai nomi (Mr., Mrs., Master), gestione dei valori mancanti, log normalization, ed encoding delle variabili categoriche.
-    * **Applicazione dei modelli predittivi**: addestramento e validazione (5-fold cross-validation) di modelli base (Naive Bayes, Logistic Regression, Decision Tree, KNN, Random Forest, SVC, XGBoost) e creazione di un Soft Voting Ensemble Classifier finale.
-* `requirements.txt`: librerie python che devono essere installate (Pandas, NumPy, Seaborn, Matplotlib, Scikit-learn, XGBoost)
+* `Titanic project.ipynb`: A comprehensive notebook containing the entire workflow, divided into:
+    * **Exploratory Data Analysis (EDA)**: Analysis of variable distributions and survival rates.
+    * **Feature Engineering and Preprocessing**: Extraction of titles from names (Mr., Mrs., Master), missing value imputation, log normalization, and categorical variable encoding.
+    * **Machine Learning Modeling**: Training and validation (5-fold cross-validation) of baseline models (Naive Bayes, Logistic Regression, Decision Tree, KNN, Random Forest, SVC, XGBoost) and the creation of a final **Soft Voting Ensemble Classifier**.
+* `requirements.txt`: List of Python libraries required for the project (Pandas, NumPy, Seaborn, Matplotlib, Scikit-learn, XGBoost).
 
 ### Dataset
 
 **Input variables:**
-* **passenger data:**
-    * `Age` (numeric): età del passeggero in anni
-    * `Sex` (categorical: "male", "female"): sesso del passeggero
-    * `SibSp` (numeric): numero di fratelli, sorelle o coniugi a bordo
-    * `Parch` (numeric): numero di genitori o figli a bordo
-    * `Fare` (numeric): tariffa pagata per il biglietto
-    * `Ticket` (categorical/text): numero del biglietto
-    * `Cabin` (categorical/text): numero della cabina (utilizzato per comprendere il posizionamento sui ponti e il numero di cabine per passeggero)
-    * `Embarked` (categorical: "C", "Q", "S"): porto di imbarco
-    * `Name` (text): nome del passeggero (utilizzato per estrarre i titoli sociali)
+* **Passenger data:**
+    * `Age` (numeric): Passenger age in years.
+    * `Sex` (categorical): "male", "female".
+    * `SibSp` (numeric): Number of siblings, spouses aboard.
+    * `Parch` (numeric): Number of parents, children aboard.
+    * `Fare` (numeric): Ticket price.
+    * `Ticket` (categorical/text): Ticket number.
+    * `Cabin` (categorical/text): Cabin number (used to derive deck position and cabin count).
+    * `Embarked` (categorical): Port of embarkation ("C", "Q", "S").
+    * `Name` (text): Passenger name (used for title extraction).
 
-**Output variable (desired target):**
-* `Survived` - il passeggero è sopravvissuto? (binary: 1 = "yes", 0 = "no")
+**Output variable (Target):**
+* `Survived`: Whether the passenger survived (binary: 1 = "yes", 0 = "no").
 
 ### Results
-I modelli sono stati valutati in base ai punteggi di accuratezza della cross-validation:
-* Il **Support Vector Classifier (SVC)** ha ottenuto l'accuratezza media individuale più alta (**~82.9%**).
-* Il **Soft Voting Ensemble Classifier** finale ha restituito un'accuratezza altamente stabile e competitiva del **~82.5%**.
+Models were evaluated based on their cross-validation accuracy scores:
+* The **Support Vector Classifier (SVC)** achieved the highest individual average accuracy (~82.9%).
+* The final **Soft Voting Ensemble Classifier** yielded a stable and competitive accuracy of **~82.5%**.
